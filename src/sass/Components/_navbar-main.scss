@@ -1,0 +1,160 @@
+.navbar-main {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  height: 86px;
+  @include respond(sm) {
+    height: 70px;
+  }
+
+  &__overlay {
+    top: 86px;
+    position: fixed;
+    width: 80%;
+    height: calc(100vh - 86px);
+    z-index: 1500;
+    left: 20%;
+    display: none;
+    @include respond(sm) {
+      top: 70px;
+      height: calc(100vh - 70px);
+      width: calc(100% - 150px);
+      left: calc(100% - 150px);
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+  &__logo {
+    img {
+      height: 70px;
+
+      @include respond(sm) {
+        height: 50px;
+      }
+    }
+    a {
+      > span {
+        @include respond(sm) {
+          font-size: 1rem;
+        }
+        br {
+          display: none;
+          @include respond(sm) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    gap: 0.2rem;
+    @include respond(lg) {
+      position: fixed;
+      width: 20%;
+      height: calc(100vh - 86px);
+      z-index: 1000;
+      left: -100%;
+      top: 86px;
+      flex-direction: column;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 0 0.5rem;
+      margin-top: 0;
+      transition: all 0.5s ease-in-out;
+      @include respond(sm) {
+        width: 150px;
+      }
+      &.active {
+        left: 0;
+      }
+    }
+
+    @include respond(sm) {
+      height: calc(100vh - 70px);
+      top: 70px;
+    }
+  }
+
+  &__item {
+    @include respond(lg) {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    padding: 0.5rem 1rem;
+    @include transitionMain;
+    color: #fff;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+
+    @include respond(lg) {
+      width: 100%;
+      border-radius: 0;
+      display: block;
+    }
+
+    @include respond(sm) {
+      font-size: 0.8rem;
+    }
+    &:hover {
+      background-color: rgba(#000, 0.4);
+      color: white;
+    }
+    &.active {
+      color: rgba(14, 108, 247, 0.9);
+      background-color: rgba(#000, 0.2);
+      border: 1px solid rgba(14, 108, 247, 0.5);
+    }
+  }
+
+  &__link-icon {
+    margin-bottom: 4px;
+    margin-right: 1px;
+
+    &.login {
+      margin-bottom: 2px;
+    }
+  }
+
+  &__control {
+    list-style: none;
+    gap: 1rem;
+
+    @include respond(md) {
+      gap: 0.5rem;
+    }
+  }
+
+  &__control-btns {
+    @include respond(sm) {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.4rem;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__menu-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+    list-style: none;
+    @include transitionMain;
+    color: white;
+    display: none;
+    @include respond(lg) {
+      display: block;
+    }
+    @include respond(sm) {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

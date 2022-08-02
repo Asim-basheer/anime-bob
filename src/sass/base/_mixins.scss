@@ -1,0 +1,48 @@
+// center item by using display flex
+
+@mixin centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// center item by using position
+@mixin centerPosition {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transitionMain {
+  transition: all 0.4s ease;
+}
+
+// MEDIA QUERY MANAGER
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == xs {
+    @media only screen and (max-width: 480px) {
+      @content;
+    } //480px
+  }
+  @if $breakpoint == sm {
+    @media only screen and (max-width: 767px) {
+      @content;
+    } //767px
+  }
+  @if $breakpoint == md {
+    @media only screen and (max-width: 991px) {
+      @content;
+    } //991px
+  }
+  @if $breakpoint == lg {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == xl {
+    @media only screen and (min-width: 1800px) {
+      @content;
+    } //1800
+  }
+}

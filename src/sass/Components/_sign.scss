@@ -1,0 +1,25 @@
+.sign-form__img {
+  background-image: linear-gradient(to right bottom, #0b5ed7, #261d1e);
+  flex: 1;
+  img {
+    // width: 450px;
+    height: 500px;
+
+    &.login {
+      @include respond(md) {
+        height: 350px;
+      }
+    }
+  }
+}
+
+.member-event {
+  cursor: pointer;
+}
+
+.width-form-container {
+  width: 50%;
+  @include respond(sm) {
+    width: auto;
+  }
+}

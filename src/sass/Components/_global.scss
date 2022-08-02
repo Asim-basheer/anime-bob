@@ -1,0 +1,111 @@
+body {
+  background-color: #111111;
+  background-image: url(../../images/Fade-In-Background.svg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+  user-select: none;
+}
+
+textarea {
+  resize: none;
+}
+// Custom Scrollbar
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #202020;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.614);
+  transition: all 0.4s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+// Custom Scrollbar
+
+.click {
+  cursor: pointer;
+  @include transitionMain;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.fast-search {
+  font-size: 0.8rem;
+}
+
+.icon-fast-search {
+  transform: translateY(-1px);
+  margin-inline-end: 1px;
+  font-size: 0.9rem;
+}
+.mb-forms-lg {
+  @include respond(lg) {
+    margin-bottom: 1rem;
+  }
+}
+.mb-forms-md {
+  @include respond(md) {
+    margin-bottom: 1rem;
+  }
+}
+.mb-forms-sm {
+  @include respond(sm) {
+    margin-bottom: 1rem;
+  }
+}
+
+.form-footer {
+  font-size: 1rem;
+  @include respond(lg) {
+    font-size: 0.9rem;
+  }
+  @include respond(sm) {
+    font-size: 0.8rem;
+  }
+}
+
+.main {
+  min-height: 80vh;
+  padding-bottom: 2rem;
+}
+
+.star-icon {
+  color: #fdcc0d;
+}
+
+.Toastify {
+  text-transform: capitalize;
+}
+
+.video-show {
+  height: 430px;
+
+  @include respond(md) {
+    height: 420px;
+  }
+
+  @include respond(sm) {
+    height: 250px;
+  }
+}
+
+.footer {
+  position: relative;
+  z-index: 10000;
+}

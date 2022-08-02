@@ -1,0 +1,21 @@
+.top-anime {
+  &__num {
+    @include centerFlex;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    @include transitionMain;
+  }
+
+  // hover effect
+
+  &__box:hover &__num {
+    color: white !important;
+  }
+
+  &__box:hover &__num.active {
+    color: #fff !important;
+    background-color: #202020 !important;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "short_name": "Anime Bob",
+  "name": "Anime website",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "400x400 64x64 32x32 24x24 16x16"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

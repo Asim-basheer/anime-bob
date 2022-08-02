@@ -1,0 +1,19 @@
+.anime-details {
+  &__list {
+    list-style: none;
+    font-size: 0.8rem;
+  }
+
+  &__des {
+    font-size: 0.8rem;
+  }
+
+  &__genre {
+    background: none;
+    border: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 0;
+    padding-right: 0.2rem;
+  }
+}

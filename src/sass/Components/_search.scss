@@ -1,0 +1,29 @@
+.search {
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    @include transitionMain;
+    &:hover {
+      color: #de4150;
+    }
+  }
+
+  &__link {
+    @include transitionMain;
+
+    &:hover {
+      background-color: rgba(#000, 0.2);
+    }
+  }
+
+  &__border-bottom {
+    border-bottom: 1px solid rgba(#ddd, 0.3);
+  }
+}

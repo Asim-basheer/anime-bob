@@ -1,0 +1,22 @@
+@import './base/mixins';
+@import './base/variables';
+@import './base/utilities';
+
+// components
+@import './Components/global';
+@import './Components/navigation';
+@import './Components/slider';
+@import './Components/anime-card';
+@import './Components/episode-card';
+@import './Components/top-anime';
+@import './Components/sign';
+@import './Components/spinner';
+@import './Components/search';
+@import './Components/sidebar-admin';
+@import './Components/haeding';
+@import './Components/navbar-main';
+@import './Components/carousel-component';
+
+// pages
+@import './pages/anime-page';
+@import './pages/page-not-found';
