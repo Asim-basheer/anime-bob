@@ -139,7 +139,6 @@ function AddAnime() {
         values.name === '' ||
         values.cover === '' ||
         values.img === '' ||
-        values.other_names === '' ||
         values.description === '' ||
         values.episodes_number === ''
       ) {
@@ -159,7 +158,6 @@ function AddAnime() {
         values.name === '' ||
         values.cover === '' ||
         values.img === '' ||
-        values.other_names === '' ||
         values.description === '' ||
         values.episodes_number === ''
       ) {
