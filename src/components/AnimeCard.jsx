@@ -54,7 +54,6 @@ function AnimeCard({ anime }) {
   const filter =
     favorites && favorites.filter((anime) => anime.anime_id === anime_id)[0];
 
-  console.log(other_names.length);
   return (
     <div className='anime-card bg-dark pt-2 rounded'>
       <div className='anime-card__head mb-2'>
@@ -66,7 +65,7 @@ function AnimeCard({ anime }) {
             {name}
           </button>
           <span className='d-block text-center text-white-50 anime-card__title-2'>
-            {other_names.length > 0 ? other_names : '&nbsp;'}
+            {other_names} &nbsp;
           </span>
         </p>
         <div className='anime-card__details text-white-50 p-1'>
