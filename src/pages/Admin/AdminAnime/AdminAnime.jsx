@@ -27,7 +27,6 @@ function AdminAnime() {
     if (confirm === true) {
       dispatch(deleteAnime(anime_id));
       dispatch(getPaginateAnime());
-
       toast.success('deleted sucessful');
     } else {
       return;
@@ -36,10 +35,10 @@ function AdminAnime() {
 
   return (
     <Container fluid className='mt-3'>
+      <Heading>Anime Table</Heading>
       <Row>
         {pageOfItems.length > 0 ? (
           <Col>
-            <Heading>Anime Table</Heading>
             <div>
               <Link
                 to='/admin/anime/add'
@@ -79,7 +78,7 @@ function AdminAnime() {
               no animes yet lets add some
             </h1>
             <Link
-              to='/admin/episode/add'
+              to='/admin/anime/add'
               className='btn btn-primary d-block ms-2'
               style={{ width: 'fit-content' }}
             >

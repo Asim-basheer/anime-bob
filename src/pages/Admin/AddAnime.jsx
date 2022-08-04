@@ -131,19 +131,19 @@ function AddAnime() {
     };
     if (params?.anime_id === 'add') {
       if (
-        (values.status === [] ||
-          values.season === [] ||
-          values.genre === [] ||
-          values.premiered === '' ||
-          values.scores === '' ||
-          values.name === '' ||
-          values.cover === '' ||
-          values.img === '' ||
-          values.other_names === '' ||
-          values.description === '',
-        values.episodes_number === '')
+        values.status === [] ||
+        values.season === [] ||
+        values.genre === [] ||
+        values.premiered === '' ||
+        values.scores === '' ||
+        values.name === '' ||
+        values.cover === '' ||
+        values.img === '' ||
+        values.other_names === '' ||
+        values.description === '' ||
+        values.episodes_number === ''
       ) {
-        toast.error('All fields are required');
+        toast.error('all fields are required');
       } else {
         dispatch(addAnime(values));
         clearInputs();
@@ -151,19 +151,19 @@ function AddAnime() {
       }
     } else {
       if (
-        (values.status === [] ||
-          values.season === [] ||
-          values.genre === [] ||
-          values.premiered === '' ||
-          values.scores === '' ||
-          values.name === '' ||
-          values.cover === '' ||
-          values.img === '' ||
-          values.other_names === '' ||
-          values.description === '',
-        values.episodes_number === '')
+        values.status === [] ||
+        values.season === [] ||
+        values.genre === [] ||
+        values.premiered === '' ||
+        values.scores === '' ||
+        values.name === '' ||
+        values.cover === '' ||
+        values.img === '' ||
+        values.other_names === '' ||
+        values.description === '' ||
+        values.episodes_number === ''
       ) {
-        toast.error('All fields are required');
+        toast.error('all fields are required');
       } else {
         const anime = { body: values, anime_id: filterValue.anime_id };
         dispatch(updateAnime(anime));

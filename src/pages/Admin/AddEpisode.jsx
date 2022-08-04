@@ -75,7 +75,7 @@ function AddEpisode() {
       values.mega === '' ||
       values.okru === ''
     ) {
-      toast.error('all inputs req');
+      toast.error('all fields are required');
     } else {
       if (params.episode_id !== 'add') {
         values.episode_id = +params.episode_id;

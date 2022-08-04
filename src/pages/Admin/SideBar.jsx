@@ -35,12 +35,12 @@ function SideBar({ user }) {
         >
           <AiOutlineCloseCircle />
         </div>
-        <div className='sidebar-admin__logo text-white text-center'>
+        <div className='sidebar-admin__logo text-white text-center fs-5'>
           <AiFillDashboard
             className='fs-5 text-primary'
             style={{ marginBottom: '5px' }}
           />{' '}
-          {''} admin
+          {''} dasboard
         </div>
 
         <ul className='sidebar-admin__list m-0'>
