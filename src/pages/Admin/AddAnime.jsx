@@ -168,7 +168,7 @@ function AddAnime() {
         dispatch(getPaginateAnime());
 
         clearInputs();
-        navigate('/admin/anime/add');
+        navigate('/admin/show-a', { replace: true });
         toast.success('edited successfully');
       }
     }

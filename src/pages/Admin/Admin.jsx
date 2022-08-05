@@ -6,7 +6,7 @@ function Admin({ user }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || +user.user_type === 3) {
+    if (!user || +user?.user_type === 3) {
       navigate('/', { replace: true });
     }
   }, [user, navigate]);

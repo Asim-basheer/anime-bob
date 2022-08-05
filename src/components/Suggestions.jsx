@@ -19,6 +19,8 @@ function Suggestions({ genreName }) {
 
     return () => fetchData();
   }, [genreName]);
+
+  console.log(genreName);
   return (
     <div>
       <Heading>suggestions</Heading>

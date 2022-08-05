@@ -71,7 +71,7 @@ function SideBar({ user }) {
               <CgPlayButtonR className='sidebar-admin__icons' /> episode
             </NavLink>
           </li>
-          {user.user_type === '1' && (
+          {user?.user_type === '1' && (
             <li className='sidebar-admin__item'>
               <NavLink
                 to='show-users'
