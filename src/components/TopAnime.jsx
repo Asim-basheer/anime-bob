@@ -51,7 +51,9 @@ function TopAnime() {
               style={{ width: '65px', height: '80px' }}
             />
             <div className='text-white-50'>
-              <h3 className='top-name mb-1 fw-bold'>{name}</h3>
+              <h3 className='top-name mb-1 fw-bold'>
+                {name.length > 15 ? name.slice(0, 15) + '...' : name}
+              </h3>
               <span className='fs-6'>
                 <AiFillStar className='anime-card__score-icon star-icon star-icon' />{' '}
                 {scores}

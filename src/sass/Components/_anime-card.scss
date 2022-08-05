@@ -5,8 +5,11 @@
       @include transitionMain;
       border: none;
       background: none;
+      height: 31px;
+      overflow: hidden;
       &:hover {
         opacity: 0.7;
+        overflow: auto;
       }
     }
     &-2 {

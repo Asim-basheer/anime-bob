@@ -95,11 +95,12 @@ function AnimePage() {
     setServer(filter.value);
   };
 
-  const index = params?.episode
-    ? allEpisode?.findIndex(
-        (object) => object.episode_id === currentEpisode[0].episode_id
-      )
-    : 0;
+  const index =
+    params?.episode && params?.episode
+      ? allEpisode?.findIndex(
+          (object) => object.episode_id === currentEpisode[0].episode_id
+        )
+      : 0;
 
   useEffect(() => {
     const episode = allEpisode[index + 1];

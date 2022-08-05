@@ -65,7 +65,10 @@ function AnimeCard({ anime }) {
             {name}
           </button>
           <span className='d-block text-center text-white-50 anime-card__title-2'>
-            {other_names} &nbsp;
+            {other_names.length > 30
+              ? other_names.slice(0, 30) + '...'
+              : other_names}{' '}
+            &nbsp;
           </span>
         </p>
         <div className='anime-card__details text-white-50 p-1'>
