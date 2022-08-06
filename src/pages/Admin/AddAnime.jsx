@@ -13,6 +13,8 @@ function AddAnime() {
   const [season, setSeason] = useState([{ season: 'summer' }]);
   const [genres, setGenres] = useState([]);
   const { genre } = useSelector((state) => state.admin);
+
+  console.log(genre);
   const [values, setValues] = useState({
     name: '',
     other_names: '',
