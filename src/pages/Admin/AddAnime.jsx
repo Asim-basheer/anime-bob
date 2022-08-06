@@ -8,13 +8,12 @@ import { useEffect } from 'react';
 import { addAnime, getGenres, updateAnime } from '../../store/admin/adminSlice';
 import { getPaginateAnime } from '../../store/anime/paginateSlice';
 import { getAnimes } from '../../store/anime/animeSlice';
-function AddAnime() {
+function AddAnime({ genre }) {
   const [status, setStatus] = useState([{ status: 'Currently Airing' }]);
   const [season, setSeason] = useState([{ season: 'summer' }]);
   const [genres, setGenres] = useState([]);
-  const { genre } = useSelector((state) => state.admin);
+  // const { genre } = useSelector((state) => state.admin);
 
-  console.log(genre);
   const [values, setValues] = useState({
     name: '',
     other_names: '',
@@ -71,7 +70,7 @@ function AddAnime() {
   }, [filterValue]);
 
   useEffect(() => {
-    dispatch(getGenres());
+    // dispatch(getGenres());
     editHandler();
   }, [dispatch, editHandler]);
 

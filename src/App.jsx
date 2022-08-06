@@ -22,7 +22,7 @@ import Users from './pages/Admin/AdminUser/Users';
 import Spinner from './components/Spinner';
 import { getPaginateAnime } from './store/anime/paginateSlice';
 import { Container } from 'react-bootstrap';
-
+import genre from './components/genre';
 const AllAnime = lazy(() => import('./pages/AllAnime'));
 const Updated = lazy(() => import('./pages/Updated'));
 const Admin = lazy(() => import('./pages/Admin/Admin'));
@@ -80,7 +80,10 @@ function App() {
                 element={<AdminHome animeCount={pager.totalItems} />}
               />
               <Route path='show-a' element={<AdminAnime />} />
-              <Route path='anime/:anime_id' element={<AddAnime />} />
+              <Route
+                path='anime/:anime_id'
+                element={<AddAnime genre={genre} />}
+              />
               <Route path='show-e' element={<AdminEpisode />} />
               <Route path='episode/:episode_id' element={<AddEpisode />} />
               <Route
