@@ -30,7 +30,7 @@ function AddEpisode() {
       setValues({
         episode_number: data.episode_number,
         mega: data.servers[0]?.value,
-        okru: data.servers[1]?.value,
+        google: data.servers[1]?.value,
       });
 
       setAnimeName([
@@ -73,7 +73,7 @@ function AddEpisode() {
       animeName === [] ||
       values.episode_number === '' ||
       values.mega === '' ||
-      values.okru === ''
+      values.google === ''
     ) {
       toast.error('all fields are required');
     } else {
@@ -82,7 +82,7 @@ function AddEpisode() {
         values.anime_id = animeName[0]?.anime_id;
         const servers = [
           { name: 'mega', value: values.mega },
-          { name: 'okru', value: values.google },
+          { name: 'google', value: values.google },
         ];
         delete values.mega;
         delete values.google;
