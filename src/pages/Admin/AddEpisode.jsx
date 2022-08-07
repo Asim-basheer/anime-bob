@@ -15,7 +15,7 @@ function AddEpisode() {
   const [values, setValues] = useState({
     episode_number: 1,
     mega: '',
-    okru: '',
+    google: '',
   });
   const { animes } = useSelector((state) => state.anime);
   const params = useParams();
@@ -82,10 +82,10 @@ function AddEpisode() {
         values.anime_id = animeName[0]?.anime_id;
         const servers = [
           { name: 'mega', value: values.mega },
-          { name: 'okru', value: values.okru },
+          { name: 'okru', value: values.google },
         ];
         delete values.mega;
-        delete values.okru;
+        delete values.google;
         values.servers = JSON.stringify(servers);
         dispatch(editEpisode(values));
         toast.success('edited successfully');
@@ -100,10 +100,10 @@ function AddEpisode() {
         };
         const servers = [
           { name: 'mega', value: returnSrcValue(values.mega) },
-          { name: 'okru', value: returnSrcValue(values.okru) },
+          { name: 'google', value: returnSrcValue(values.google) },
         ];
         delete values.mega;
-        delete values.okru;
+        delete values.google;
         values.anime_id = animeName[0]?.anime_id;
         values.servers = JSON.stringify(servers);
 
@@ -111,7 +111,7 @@ function AddEpisode() {
         toast.success('added successfully');
       }
 
-      setValues({ episode_number: 1, mega: '', okru: '' });
+      setValues({ episode_number: 1, mega: '', google: '' });
       setAnimeName([]);
     }
   };
@@ -151,14 +151,14 @@ function AddEpisode() {
           </Row>
           <Row className='mb-3'>
             <Col lg={6} className='mb-forms-md'>
-              <Form.Group controlId='okru'>
-                <Form.Label>Okru server</Form.Label>
+              <Form.Group controlId='google'>
+                <Form.Label>google server</Form.Label>
                 <Form.Control
                   size='sm'
                   type='text'
-                  placeholder='Okru url'
+                  placeholder='google url'
                   onChange={handleChange}
-                  value={values.okru}
+                  value={values.google}
                 />
               </Form.Group>
             </Col>
