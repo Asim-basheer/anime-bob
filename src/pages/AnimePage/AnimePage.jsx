@@ -98,7 +98,7 @@ function AnimePage() {
   const index =
     params?.episode && params?.episode
       ? allEpisode?.findIndex(
-          (object) => object.episode_id === currentEpisode[0].episode_id
+          (object) => object.episode_id === currentEpisode[0]?.episode_id
         )
       : 0;
 
