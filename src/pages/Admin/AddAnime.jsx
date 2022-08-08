@@ -147,6 +147,9 @@ function AddAnime({ genre }) {
       } else {
         dispatch(addAnime(values));
         clearInputs();
+
+        console.log(values);
+        navigate('/admin/show-a', { replace: true });
         toast.success('added successfully');
       }
     } else {
