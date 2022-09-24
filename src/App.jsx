@@ -55,6 +55,7 @@ function App() {
   }, [dispatch]);
   const { pager, isError } = useSelector((state) => state.paginate);
 
+  console.log(isError);
   if (isError) {
     return <PageNotFound title={'Whops something went wrong'} back={false} />;
   }
