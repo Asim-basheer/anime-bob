@@ -15,7 +15,7 @@ function Updated() {
   );
 
   useEffect(() => {
-    return () => dispatch(getEpisodes());
+    dispatch(getEpisodes());
   }, [dispatch]);
 
   if (isLoading) {

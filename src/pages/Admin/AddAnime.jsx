@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { addAnime, getGenres, updateAnime } from '../../store/admin/adminSlice';
+import { addAnime, updateAnime } from '../../store/admin/adminSlice';
 import { getPaginateAnime } from '../../store/anime/paginateSlice';
 import { getAnimes } from '../../store/anime/animeSlice';
 function AddAnime({ genre }) {

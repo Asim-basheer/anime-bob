@@ -8,10 +8,11 @@ import {
   deleteFromFavorite,
   getFavorites,
 } from '../store/anime/favoriteSlice';
+import SpinnerComponent from './Spinner';
 
 function AnimeCard({ anime }) {
   const user = JSON.parse(localStorage.getItem('user'));
-  const { favorites } = useSelector((state) => state.favorite);
+  const { favorites, isLoading } = useSelector((state) => state.favorite);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -53,6 +54,10 @@ function AnimeCard({ anime }) {
 
   const filter =
     favorites && favorites.filter((anime) => anime.anime_id === anime_id)[0];
+
+  if (isLoading) {
+    return <SpinnerComponent />;
+  }
 
   return (
     <div className='anime-card bg-dark pt-2 rounded'>
