@@ -23,7 +23,6 @@ import Spinner from './components/Spinner';
 import { getPaginateAnime } from './store/anime/paginateSlice';
 import { Container } from 'react-bootstrap';
 import genre from './components/genre';
-import NoData from './components/NoData';
 const AllAnime = lazy(() => import('./pages/AllAnime'));
 const Updated = lazy(() => import('./pages/Updated'));
 const Admin = lazy(() => import('./pages/Admin/Admin'));
@@ -54,9 +53,9 @@ function App() {
     dispatch(getFavorites());
     dispatch(getPaginateAnime());
   }, [dispatch]);
-  const { pager } = useSelector((state) => state.paginate);
+  const { pager, isError } = useSelector((state) => state.paginate);
 
-  if (pager) {
+  if (isError) {
     return <PageNotFound title={'Whops something went wrong'} back={false} />;
   }
 
