@@ -23,6 +23,7 @@ import Spinner from './components/Spinner';
 import { getPaginateAnime } from './store/anime/paginateSlice';
 import { Container } from 'react-bootstrap';
 import genre from './components/genre';
+import NoData from './components/NoData';
 const AllAnime = lazy(() => import('./pages/AllAnime'));
 const Updated = lazy(() => import('./pages/Updated'));
 const Admin = lazy(() => import('./pages/Admin/Admin'));
@@ -54,6 +55,11 @@ function App() {
     dispatch(getPaginateAnime());
   }, [dispatch]);
   const { pager } = useSelector((state) => state.paginate);
+
+  if (pager) {
+    return <PageNotFound title={'Whops something went wrong'} back={false} />;
+  }
+
   return (
     <>
       <div className={`${pathname.startsWith('/admin') ? 'd-none' : ''}`}>
@@ -129,7 +135,10 @@ function App() {
             <Route path='result/:name/:value' element={<Result />} />
 
             {/* display page not found  */}
-            <Route path='*' element={<PageNotFound />} />
+            <Route
+              path='*'
+              element={<PageNotFound title={'Page not found'} />}
+            />
           </Routes>
         </Container>
 
