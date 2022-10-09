@@ -53,9 +53,8 @@ function App() {
     dispatch(getFavorites());
     dispatch(getPaginateAnime());
   }, [dispatch]);
-  const { pager, isError } = useSelector((state) => state.paginate);
+  const { pager, isError, isLoading } = useSelector((state) => state.paginate);
 
-  console.log(isError);
   if (isError) {
     return <PageNotFound title={'Whops something went wrong'} back={false} />;
   }
@@ -68,79 +67,86 @@ function App() {
         <div className='mb-3'>&nbsp;</div>
       </div>
       <main className='main'>
-        <Container fluid='xxl'>
-          <Routes>
-            <Route index element={<Home />}></Route>
-            <Route path='register' element={<Register />}></Route>
-            <Route path='login' element={<Login />}></Route>
-            <Route
-              path='admin'
-              element={
-                <Suspense fallback={<Spinner />}>
-                  <Admin user={user} />
-                </Suspense>
-              }
-            >
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <Container fluid='xxl'>
+            <Routes>
+              <Route index element={<Home />}></Route>
+              <Route path='register' element={<Register />}></Route>
+              <Route path='login' element={<Login />}></Route>
               <Route
-                path='home'
-                element={<AdminHome animeCount={pager.totalItems} />}
-              />
-              <Route path='show-a' element={<AdminAnime />} />
+                path='admin'
+                element={
+                  <Suspense fallback={<Spinner />}>
+                    <Admin user={user} />
+                  </Suspense>
+                }
+              >
+                <Route
+                  path='home'
+                  element={<AdminHome animeCount={pager.totalItems} />}
+                />
+                <Route path='show-a' element={<AdminAnime />} />
+                <Route
+                  path='anime/:anime_id'
+                  element={<AddAnime genre={genre} />}
+                />
+                <Route path='show-e' element={<AdminEpisode />} />
+                <Route path='episode/:episode_id' element={<AddEpisode />} />
+                <Route
+                  path='episode/:episode_id/:anime_name'
+                  element={<AddEpisode />}
+                />
+                <Route path='show-users' element={<Users user={user} />} />
+              </Route>
               <Route
-                path='anime/:anime_id'
-                element={<AddAnime genre={genre} />}
-              />
-              <Route path='show-e' element={<AdminEpisode />} />
-              <Route path='episode/:episode_id' element={<AddEpisode />} />
+                path='all'
+                element={
+                  <Suspense>
+                    <AllAnime fallback={<Spinner />} />
+                  </Suspense>
+                }
+              ></Route>
               <Route
-                path='episode/:episode_id/:anime_name'
-                element={<AddEpisode />}
+                path='updated'
+                element={
+                  <Suspense fallback={<Spinner />}>
+                    <Updated />
+                  </Suspense>
+                }
+              ></Route>
+              <Route
+                path='search'
+                element={
+                  <Suspense fallback={<Spinner />}>
+                    <Search />
+                  </Suspense>
+                }
+              ></Route>
+              <Route
+                path='favorite'
+                element={
+                  <Suspense fallback={<Spinner />}>
+                    <Favorite user={user} />
+                  </Suspense>
+                }
+              ></Route>
+              <Route path='details/:id/:name' element={<AnimePage />} />
+              <Route
+                path='details/:id/:name/:episode'
+                element={<AnimePage />}
               />
-              <Route path='show-users' element={<Users user={user} />} />
-            </Route>
-            <Route
-              path='all'
-              element={
-                <Suspense>
-                  <AllAnime fallback={<Spinner />} />
-                </Suspense>
-              }
-            ></Route>
-            <Route
-              path='updated'
-              element={
-                <Suspense fallback={<Spinner />}>
-                  <Updated />
-                </Suspense>
-              }
-            ></Route>
-            <Route
-              path='search'
-              element={
-                <Suspense fallback={<Spinner />}>
-                  <Search />
-                </Suspense>
-              }
-            ></Route>
-            <Route
-              path='favorite'
-              element={
-                <Suspense fallback={<Spinner />}>
-                  <Favorite user={user} />
-                </Suspense>
-              }
-            ></Route>
-            <Route path='details/:id/:name' element={<AnimePage />} />
-            <Route path='details/:id/:name/:episode' element={<AnimePage />} />
-            <Route path='result/:name/:value' element={<Result />} />
+              <Route path='result/:name/:value' element={<Result />} />
 
-            {/* display page not found  */}
-            <Route
-              path='*'
-              element={<PageNotFound title={'Page not found'} />}
-            />
-          </Routes>
-        </Container>
+              {/* display page not found  */}
+              <Route
+                path='*'
+                element={<PageNotFound title={'Page not found'} />}
+              />
+            </Routes>
+          </Container>
+        )}
 
         {/* call toast container to display the toast Library */}
         <ToastContainer
