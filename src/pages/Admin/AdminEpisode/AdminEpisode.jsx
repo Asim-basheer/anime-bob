@@ -8,11 +8,16 @@ import TbodyEpi from './TbodyEpi';
 import { getEpisodes } from '../../../store/episode/episodeSlice';
 import EpisodePaginate from '../../../components/EpisodePaginate';
 import Heading from '../../../components/Heading';
+import { useEffect } from 'react';
 
 function AdminEpisode() {
   const dispatch = useDispatch();
   const { pager, pageOfItems } = useSelector((state) => state.episode);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getEpisodes());
+  });
 
   const handleEdit = (anime_id, name) => {
     navigate(`/admin/episode/${anime_id}/${name}`);
