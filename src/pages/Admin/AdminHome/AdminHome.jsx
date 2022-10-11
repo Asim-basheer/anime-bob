@@ -3,14 +3,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Heading from '../../../components/Heading';
 import { getUsers } from '../../../store/admin/adminSlice';
-import { getEpisodes } from '../../../store/episode/episodeSlice';
 import HomeCard from './HomeCard';
 function AdminHome({ animeCount }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUsers());
-    dispatch(getEpisodes());
   }, [dispatch]);
 
   const { users } = useSelector((state) => state.admin);

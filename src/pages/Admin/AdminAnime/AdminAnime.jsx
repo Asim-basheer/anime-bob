@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Container, Row, Col, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import PaginationComponent from '../../../components/PaginationComponent';
@@ -14,9 +13,6 @@ function AdminAnime() {
   const dispatch = useDispatch();
   const { pager, pageOfItems } = useSelector((state) => state.paginate);
   const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(getPaginateAnime());
-  }, [dispatch]);
 
   const handleEdit = (anime_id) => {
     navigate(`/admin/anime/${anime_id}`);

@@ -48,7 +48,6 @@ function Users({ user }) {
     );
     if (confirm) {
       dispatch(deleteUser(id));
-      dispatch(getUsers());
       toast.success('deleted sucessfully');
     }
   };

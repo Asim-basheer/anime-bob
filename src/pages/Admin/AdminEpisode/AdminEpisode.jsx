@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Container, Row, Col, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -14,9 +13,6 @@ function AdminEpisode() {
   const dispatch = useDispatch();
   const { pager, pageOfItems } = useSelector((state) => state.episode);
   const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(getEpisodes());
-  }, [dispatch]);
 
   const handleEdit = (anime_id, name) => {
     navigate(`/admin/episode/${anime_id}/${name}`);

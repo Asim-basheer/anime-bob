@@ -103,8 +103,8 @@ function App() {
               <Route
                 path='all'
                 element={
-                  <Suspense>
-                    <AllAnime fallback={<Spinner />} />
+                  <Suspense fallback={<Spinner />}>
+                    <AllAnime />
                   </Suspense>
                 }
               ></Route>

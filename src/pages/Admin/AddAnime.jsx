@@ -131,50 +131,19 @@ function AddAnime({ genre }) {
       setGenres([]);
     };
     if (params?.anime_id === 'add') {
-      if (
-        values.status === [] ||
-        values.season === [] ||
-        values.genre === [] ||
-        values.premiered === '' ||
-        values.scores === '' ||
-        values.name === '' ||
-        values.cover === '' ||
-        values.img === '' ||
-        values.description === '' ||
-        values.episodes_number === ''
-      ) {
-        toast.error('all fields are required');
-      } else {
-        dispatch(addAnime(values));
-        clearInputs();
-
-        console.log(values);
-        navigate('/admin/show-a', { replace: true });
-        toast.success('added successfully');
-      }
+      dispatch(addAnime(values));
+      clearInputs();
+      console.log(values);
+      navigate('/admin/show-a', { replace: true });
+      toast.success('added successfully');
     } else {
-      if (
-        values.status === [] ||
-        values.season === [] ||
-        values.genre === [] ||
-        values.premiered === '' ||
-        values.scores === '' ||
-        values.name === '' ||
-        values.cover === '' ||
-        values.img === '' ||
-        values.description === '' ||
-        values.episodes_number === ''
-      ) {
-        toast.error('all fields are required');
-      } else {
-        const anime = { body: values, anime_id: filterValue.anime_id };
-        dispatch(updateAnime(anime));
-        dispatch(getPaginateAnime());
+      const anime = { body: values, anime_id: filterValue.anime_id };
+      dispatch(updateAnime(anime));
+      dispatch(getPaginateAnime());
 
-        clearInputs();
-        navigate('/admin/show-a', { replace: true });
-        toast.success('edited successfully');
-      }
+      clearInputs();
+      navigate('/admin/show-a', { replace: true });
+      toast.success('edited successfully');
     }
   };
 
@@ -192,6 +161,7 @@ function AddAnime({ genre }) {
                   onChange={handleChange}
                   size='sm'
                   value={values.name}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -204,6 +174,7 @@ function AddAnime({ genre }) {
                   placeholder='Other names'
                   onChange={handleChange}
                   value={values.other_names}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -214,6 +185,7 @@ function AddAnime({ genre }) {
                 id='premiered'
                 onChange={handleChange}
                 value={values.premiered}
+                required
               >
                 {arrPremiered.reverse().map((premiered) => {
                   return (
@@ -235,6 +207,7 @@ function AddAnime({ genre }) {
                   placeholder='Choose a status...'
                   selected={status}
                   size='sm'
+                  required
                 />
               </Form.Group>
             </Col>
@@ -250,6 +223,7 @@ function AddAnime({ genre }) {
                   onChange={handleChange}
                   size='sm'
                   value={values.img}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -262,6 +236,7 @@ function AddAnime({ genre }) {
                   placeholder='Cover url'
                   onChange={handleChange}
                   value={values.cover}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -281,6 +256,7 @@ function AddAnime({ genre }) {
                   placeholder='Choose a genres...'
                   clearButton
                   size='sm'
+                  required
                 />
               </Form.Group>
             </Col>
@@ -295,6 +271,7 @@ function AddAnime({ genre }) {
                   placeholder='Choose a season...'
                   selected={season}
                   size={'sm'}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -310,6 +287,7 @@ function AddAnime({ genre }) {
                   min={1}
                   step='.01'
                   value={values.scores}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -323,6 +301,7 @@ function AddAnime({ genre }) {
                   onChange={handleChange}
                   min={1}
                   value={values.episodes_number}
+                  required
                 />
               </Form.Group>
             </Col>
@@ -339,6 +318,7 @@ function AddAnime({ genre }) {
                   onChange={handleChange}
                   size='sm'
                   value={values.description}
+                  required
                 />
               </Form.Group>
             </Col>
